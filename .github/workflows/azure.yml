@@ -28,8 +28,32 @@ jobs:
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.0.2
       
+    - name: Navigate to Workspace
+      run: cd $GITHUB_WORKSPACE
+
+    - name: Create Build Directory
+      run: mkdir _build
+      
     - name: Restore NuGet Packages
       run: nuget restore TicHub.sln
     
     - name: Build the Solution
-      run: msbuild TicHub.sln /p:Configuration=Release
+      run: msbuild TicHub.sln /nologo /nr:false /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:platform="Any CPU" /p:configuration="Release" /p:PublishUrl="../_build"
+    
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v2.1.4
+      with:
+        name: AzureDepBundle
+        path: "./_build"
+     
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    
+    - name: Publish Artifacts to Azure
+      uses: Azure/webapps-deploy@v2
+      with:
+        app-name: tichub
+        package: "./_build"
+        slot-name: production
