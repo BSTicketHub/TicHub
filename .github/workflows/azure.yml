@@ -54,6 +54,6 @@ jobs:
     - name: Publish Artifacts to Azure
       uses: Azure/webapps-deploy@v2
       with:
-        app-name: tichub
+        app-name: tickethub
         package: "./_build"
         slot-name: production
