@@ -36,11 +36,17 @@ jobs:
       run: nuget restore TicHub.sln
     
     - name: Build the Solution
-      run: msbuild TicHub.sln /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:DeleteExistingFiles=True /p:platform="Any CPU" /p:configuration="Release"
+      run: msbuild TicHub.sln /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:platform="Any CPU" /p:configuration="Release" /p:PublishUrl="../_build"
    
     - name: Show Dir
       run: dir
     
+    - name: Change Dir
+      run: cd _build
+    
+    - name: Show Dir
+      run: dir
+      
     - name: Upload Artifact
       uses: actions/upload-artifact@v2.1.4
       with:
