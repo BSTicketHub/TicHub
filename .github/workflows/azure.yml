@@ -31,15 +31,12 @@ jobs:
    
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.0.2
-
-    - name: Create Build Directory
-      run: mkdir _build
       
     - name: Restore NuGet Packages
       run: nuget restore TicHub.sln
     
     - name: Build the Solution
-      run: msbuild TicHub.sln /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:platform="Any CPU" /p:configuration="Release"
+      run: msbuild TicHub.sln /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:DeleteExistingFiles=True /p:platform="Any CPU" /p:configuration="Release"
      
     - name: Login to Azure
       uses: azure/login@v1
