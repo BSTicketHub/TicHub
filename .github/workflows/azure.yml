@@ -12,7 +12,7 @@ on:
 
 env:
   AZURE_WEBAPP_NAME: tickethub
-  AZURE_WEBAPP_PACKAGE_PATH: './obj'
+  AZURE_WEBAPP_PACKAGE_PATH: './_build'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -36,16 +36,7 @@ jobs:
       run: nuget restore TicHub.sln
     
     - name: Build the Solution
-      run: msbuild TicHub.sln /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:platform="Any CPU" /p:configuration="Release" /p:PublishUrl="../_build"
-   
-    - name: Show Dir
-      run: dir
-    
-    - name: Change Dir
-      run: cd ./_build/
-    
-    - name: Show Dir
-      run: dir
+      run: msbuild TicHub.sln /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:platform="Any CPU" /p:configuration="Release" /p:PublishUrl=${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
       
     - name: Upload Artifact
       uses: actions/upload-artifact@v2.1.4
