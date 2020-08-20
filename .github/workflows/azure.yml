@@ -32,4 +32,4 @@ jobs:
       run: nuget restore TicHub.sln
     
     - name: Build the Solution
-      run: msbuild TicHub.sln
+      run: msbuild TicHub.sln /p:Configuration=Release
