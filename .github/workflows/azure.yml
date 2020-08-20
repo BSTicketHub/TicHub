@@ -42,7 +42,7 @@ jobs:
       run: dir
     
     - name: Change Dir
-      run: cd _build
+      run: cd ./_build/
     
     - name: Show Dir
       run: dir
