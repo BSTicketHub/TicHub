@@ -10,6 +10,10 @@ on:
   pull_request:
     branches: [ master ]
 
+env:
+  AZURE_WEBAPP_NAME: tickethub
+  AZURE_WEBAPP_PACKAGE_PATH: 'obj\Release\Package\PackageTmp'
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -35,13 +39,7 @@ jobs:
       run: nuget restore TicHub.sln
     
     - name: Build the Solution
-      run: msbuild TicHub.sln /nologo /nr:false /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:platform="Any CPU" /p:configuration="Release" /p:PublishUrl="../_build"
-    
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v2.1.4
-      with:
-        name: AzureDepBundle
-        path: "./_build"
+      run: msbuild TicHub.sln /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:platform="Any CPU" /p:configuration="Release"
      
     - name: Login to Azure
       uses: azure/login@v1
@@ -51,6 +49,6 @@ jobs:
     - name: Publish Artifacts to Azure
       uses: Azure/webapps-deploy@v2
       with:
-        app-name: tickethub
-        package: "./_build"
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
         slot-name: production
