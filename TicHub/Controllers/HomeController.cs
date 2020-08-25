@@ -37,5 +37,23 @@ namespace TicHub.Controllers
 
             return View();
         }
+        public ActionResult Aus2()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+        public ActionResult Aus3()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+        public ActionResult Aus4()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
     }
 }
