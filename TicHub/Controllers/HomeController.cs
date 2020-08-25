@@ -26,5 +26,12 @@ namespace TicHub.Controllers
 
             return View();
         }
+
+        public ActionResult Aus()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
     }
 }
