@@ -10,6 +10,7 @@ using TicHub.Models;
 
 namespace TicHub.Controllers
 {
+    // add bagayialow
     [Authorize]
     public class ManageController : Controller
     {
