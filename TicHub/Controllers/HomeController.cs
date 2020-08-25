@@ -26,5 +26,10 @@ namespace TicHub.Controllers
 
             return View();
         }
+
+        public ActionResult Shane()
+        {
+            return View();
+        }
     }
 }

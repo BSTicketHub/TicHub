@@ -49,6 +49,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -183,16 +185,43 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ToolManController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\context.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ToolManDB\MSreplication_options.cs" />
+    <Compile Include="Models\ToolManDB\spt_fallback_db.cs" />
+    <Compile Include="Models\ToolManDB\spt_fallback_dev.cs" />
+    <Compile Include="Models\ToolManDB\spt_fallback_usg.cs" />
+    <Compile Include="Models\ToolManDB\spt_monitor.cs" />
+    <Compile Include="Models\ToolManDB\ToolMandb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\CSS\Origin\Content\bootstrap-theme.css" />
+    <Content Include="Assets\CSS\Origin\Content\bootstrap-theme.min.css" />
+    <Content Include="Assets\CSS\Origin\Content\bootstrap.css" />
+    <Content Include="Assets\CSS\Origin\Content\bootstrap.min.css" />
+    <Content Include="Assets\CSS\Origin\Content\Site.css" />
+    <Content Include="Assets\Image\Origin\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Assets\JavaScript\Origin\Scripts\bootstrap.js" />
+    <Content Include="Assets\JavaScript\Origin\Scripts\bootstrap.min.js" />
+    <None Include="Assets\JavaScript\Origin\Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Assets\JavaScript\Origin\Scripts\jquery-3.4.1.js" />
+    <Content Include="Assets\JavaScript\Origin\Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Assets\JavaScript\Origin\Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Assets\JavaScript\Origin\Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Assets\JavaScript\Origin\Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Assets\JavaScript\Origin\Scripts\jquery.validate.js" />
+    <Content Include="Assets\JavaScript\Origin\Scripts\jquery.validate.min.js" />
+    <Content Include="Assets\JavaScript\Origin\Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Assets\JavaScript\Origin\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Assets\JavaScript\Origin\Scripts\modernizr-2.8.3.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -203,6 +232,16 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Assets\CSS\Origin\Content\bootstrap-theme.css.map" />
+    <Content Include="Assets\CSS\Origin\Content\bootstrap-theme.min.css.map" />
+    <Content Include="Assets\CSS\Origin\Content\bootstrap.css.map" />
+    <Content Include="Assets\CSS\Origin\Content\bootstrap.min.css.map" />
+    <Content Include="Assets\Image\Origin\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\Image\Origin\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\Image\Origin\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Assets\Image\Origin\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Assets\JavaScript\Origin\Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Assets\JavaScript\Origin\Scripts\jquery-3.4.1.slim.min.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -248,9 +287,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\ToolMan\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Assets\Media\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
