@@ -26,5 +26,8 @@ namespace TicHub.Controllers
 
             return View();
         }
+
+        // Add a comment
+
     }
 }
