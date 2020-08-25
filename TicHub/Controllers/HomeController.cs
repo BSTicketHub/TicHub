@@ -27,6 +27,10 @@ namespace TicHub.Controllers
             return View();
         }
 
+        // Add a comment
+        // bagayialow
+        // bagayialow2
+
         public ActionResult Aus()
         {
             ViewBag.Message = "Your contact page.";
