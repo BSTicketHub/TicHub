@@ -30,6 +30,12 @@ namespace TicHub.Controllers
         // Add a comment
         // bagayialow
         // bagayialow2
-        //Add by uni
+
+        public ActionResult Aus()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
     }
 }
