@@ -31,5 +31,10 @@ namespace TicHub.Controllers
         // bagayialow
         // bagayialow2
         // Comment
+
+        public ActionResult ShaneOP()
+        {
+            return View();
+        }
     }
 }
